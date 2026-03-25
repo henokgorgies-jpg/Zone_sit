@@ -7,8 +7,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Save, ArrowLeft, Building2, Target, Users, User, Image as ImageIcon } from "lucide-react";
+import { Loader2, Save, ArrowLeft, Building2, Target, Users, User, Image as ImageIcon, DatabaseZap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { ImageUpload } from "@/components/admin/ImageUpload";
 
 interface AboutContent {
     mission: string;
@@ -114,14 +115,26 @@ const AboutManagement = () => {
                     <h1 className="text-4xl font-black tracking-tight uppercase">Manage About Us</h1>
                     <p className="text-slate-500 font-medium mt-2">Update core pillars and institutional leadership profiles.</p>
                 </div>
-                <Button
-                    onClick={() => mutation.mutate(formData)}
-                    disabled={mutation.isPending}
-                    className="rounded-full px-8 py-6 h-auto font-bold shadow-xl shadow-primary/20"
-                >
-                    {mutation.isPending ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Save className="h-4 w-4 mr-2" />}
-                    Save Changes
-                </Button>
+                <div className="flex gap-3">
+                    {!page && (
+                        <Button
+                            variant="outline"
+                            onClick={() => mutation.mutate(formData)}
+                            className="rounded-full px-6 py-6 h-auto font-bold border-amber-200 bg-amber-50 text-amber-700 hover:bg-amber-100"
+                        >
+                            <DatabaseZap className="h-4 w-4 mr-2" />
+                            Repair Database Link
+                        </Button>
+                    )}
+                    <Button
+                        onClick={() => mutation.mutate(formData)}
+                        disabled={mutation.isPending}
+                        className="rounded-full px-8 py-6 h-auto font-bold shadow-xl shadow-primary/20"
+                    >
+                        {mutation.isPending ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Save className="h-4 w-4 mr-2" />}
+                        Save Changes
+                    </Button>
+                </div>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
@@ -215,20 +228,13 @@ const AboutManagement = () => {
                             />
                         </div>
 
-                        <div className="space-y-2">
-                            <Label className="flex items-center gap-2 font-bold uppercase text-[10px] tracking-widest text-slate-400">
-                                <ImageIcon className="h-3 w-3" /> Photo URL
-                            </Label>
-                            <Input
+                        <div className="space-y-4">
+                            <ImageUpload
                                 value={formData.managerPhotoUrl}
-                                onChange={(e) => handleInputChange("managerPhotoUrl", e.target.value)}
-                                className="rounded-xl border-slate-200"
+                                onChange={(url) => handleInputChange("managerPhotoUrl", url)}
+                                label="Manager Portrait"
+                                bucket="media"
                             />
-                            {formData.managerPhotoUrl && (
-                                <div className="h-20 w-20 rounded-2xl overflow-hidden mt-2 border border-slate-100">
-                                    <img src={formData.managerPhotoUrl} alt="Preview" className="w-full h-full object-cover" />
-                                </div>
-                            )}
                         </div>
 
                         <div className="space-y-2">

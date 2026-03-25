@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, Fragment } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { AdminSidebar } from "./AdminSidebar";
@@ -61,16 +61,18 @@ export function AdminLayout() {
             <Breadcrumb>
               <BreadcrumbList>
                 {breadcrumbs.map((crumb, index) => (
-                  <BreadcrumbItem key={crumb.href}>
+                  <Fragment key={crumb.href}>
                     {index > 0 && <BreadcrumbSeparator />}
-                    {crumb.isLast ? (
-                      <BreadcrumbPage>{crumb.label}</BreadcrumbPage>
-                    ) : (
-                      <BreadcrumbLink asChild>
-                        <Link to={crumb.href}>{crumb.label}</Link>
-                      </BreadcrumbLink>
-                    )}
-                  </BreadcrumbItem>
+                    <BreadcrumbItem>
+                      {crumb.isLast ? (
+                        <BreadcrumbPage>{crumb.label}</BreadcrumbPage>
+                      ) : (
+                        <BreadcrumbLink asChild>
+                          <Link to={crumb.href}>{crumb.label}</Link>
+                        </BreadcrumbLink>
+                      )}
+                    </BreadcrumbItem>
+                  </Fragment>
                 ))}
               </BreadcrumbList>
             </Breadcrumb>

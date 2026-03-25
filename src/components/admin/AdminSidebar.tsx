@@ -10,6 +10,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Users,
+  Lightbulb,
+  Wrench,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/useAuth";
@@ -33,6 +35,8 @@ const mainNavItems = [
   { title: "Digital Pages", url: "/admin/pages", icon: FileText },
   { title: "News & Releases", url: "/admin/news", icon: Newspaper },
   { title: "Service Directory", url: "/admin/services", icon: Briefcase },
+  { title: "Innovation Hub", url: "/admin/innovation", icon: Lightbulb },
+  { title: "Maintenance Center", url: "/admin/maintenance", icon: Wrench },
   { title: "Document Library", url: "/admin/documents", icon: FileText },
   { title: "Media Gallery", url: "/admin/media", icon: Newspaper },
   { title: "Citizen Engagement", url: "/admin/engagements", icon: Users },

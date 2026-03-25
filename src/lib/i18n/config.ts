@@ -5,7 +5,6 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 // Import translation files
 import enTranslations from './locales/en.json';
 import amTranslations from './locales/am.json';
-import orTranslations from './locales/or.json';
 
 const resources = {
     en: {
@@ -13,9 +12,6 @@ const resources = {
     },
     am: {
         translation: amTranslations
-    },
-    or: {
-        translation: orTranslations
     }
 };
 
@@ -25,7 +21,7 @@ i18n
     .init({
         resources,
         fallbackLng: 'en',
-        supportedLngs: ['en', 'am', 'or'],
+        supportedLngs: ['en', 'am'],
 
         detection: {
             order: ['localStorage', 'navigator'],

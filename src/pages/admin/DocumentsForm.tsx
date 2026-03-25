@@ -16,9 +16,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
-import { Database } from "@/integrations/supabase/types";
+import { FileUpload } from "@/components/admin/FileUpload";
 
-type ContentStatus = Database["public"]["Enums"]["content_status"];
+type ContentStatus = "draft" | "published" | "archived";
 
 const categoryOptions = ["Forms", "Reports", "Policies", "Guidelines", "Notices", "Templates", "Legal"];
 
@@ -162,15 +162,18 @@ export default function DocumentsForm() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="file_url">File URL *</Label>
-                  <Input
-                    id="file_url"
+                  <FileUpload
+                    label="Resource Data Path"
                     value={form.file_url}
-                    onChange={(e) => setForm({ ...form, file_url: e.target.value })}
-                    placeholder="https://example.com/document.pdf"
-                    required
+                    onChange={(url, type, size) => {
+                      setForm((prev) => ({
+                        ...prev,
+                        file_url: url,
+                        file_type: type || prev.file_type,
+                        file_size: size || prev.file_size
+                      }));
+                    }}
                   />
-                  <p className="text-xs text-muted-foreground">Direct link to the downloadable file</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">

@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plus, Trash2, Camera, User, Layout, Save, RefreshCw } from "lucide-react";
+import { ImageUpload } from "@/components/admin/ImageUpload";
 
 interface HeroImage {
     src: string;
@@ -162,28 +163,20 @@ const PortalManagement = () => {
                                     <Trash2 className="h-4 w-4" />
                                 </Button>
                                 <div className="grid gap-4">
+                                    <ImageUpload
+                                        label="Slide Artwork"
+                                        value={image.src}
+                                        onChange={(url) => updateHeroImage(index, "src", url)}
+                                    />
                                     <div className="space-y-2">
-                                        <Label className="text-xs uppercase font-bold tracking-widest text-slate-400">Image URL</Label>
+                                        <Label className="text-xs uppercase font-bold tracking-widest text-slate-400">Descriptive Protocol (Alt Text)</Label>
                                         <Input
-                                            placeholder="/images/hero-1.png or external URL"
-                                            value={image.src}
-                                            onChange={(e) => updateHeroImage(index, "src", e.target.value)}
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label className="text-xs uppercase font-bold tracking-widest text-slate-400">Alt Text / Label</Label>
-                                        <Input
-                                            placeholder="e.g. Modern Government Building"
+                                            placeholder="e.g. Modern Government Building v1.0"
                                             value={image.alt}
                                             onChange={(e) => updateHeroImage(index, "alt", e.target.value)}
                                         />
                                     </div>
                                 </div>
-                                {image.src && (
-                                    <div className="aspect-video w-full rounded-lg overflow-hidden border">
-                                        <img src={image.src} alt="Preview" className="w-full h-full object-cover" />
-                                    </div>
-                                )}
                             </div>
                         ))}
                         <div className="pt-4 border-t">
@@ -236,17 +229,11 @@ const PortalManagement = () => {
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <Label>Photo URL</Label>
-                                    <div className="flex gap-2">
-                                        <Input
-                                            placeholder="/images/ceo.png"
-                                            value={ceoData.image}
-                                            onChange={(e) => setCeoData({ ...ceoData, image: e.target.value })}
-                                        />
-                                        <div className="h-10 w-10 shrink-0 border rounded-lg overflow-hidden bg-slate-100 flex items-center justify-center">
-                                            {ceoData.image ? <img src={ceoData.image} className="w-full h-full object-cover" /> : <Camera className="h-4 w-4 text-slate-400" />}
-                                        </div>
-                                    </div>
+                                    <ImageUpload
+                                        label="Official Portrait"
+                                        value={ceoData.image}
+                                        onChange={(url) => setCeoData({ ...ceoData, image: url })}
+                                    />
                                 </div>
                             </div>
                             <div className="space-y-2">

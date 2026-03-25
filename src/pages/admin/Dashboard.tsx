@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Newspaper, Briefcase, FileText, TrendingUp, Plus, ArrowRight, Users, HelpCircle } from "lucide-react";
+import { Newspaper, Briefcase, FileText, TrendingUp, Plus, ArrowRight, Users, HelpCircle, Lightbulb, Wrench } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
@@ -12,22 +12,26 @@ interface Stats {
   media: number;
   engagements: number;
   faqs: number;
+  innovation: number;
+  maintenance: number;
 }
 
 export default function Dashboard() {
-  const [stats, setStats] = useState<Stats>({ news: 0, services: 0, documents: 0, media: 0, engagements: 0, faqs: 0 });
+  const [stats, setStats] = useState<Stats>({ news: 0, services: 0, documents: 0, media: 0, engagements: 0, faqs: 0, innovation: 0, maintenance: 0 });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchStats() {
       try {
-        const [newsRes, servicesRes, docsRes, mediaRes, engagementsRes, faqsRes] = await Promise.all([
+        const [newsRes, servicesRes, docsRes, mediaRes, engagementsRes, faqsRes, innovationRes, maintenanceRes] = await Promise.all([
           supabase.from("news").select("id", { count: "exact", head: true }),
           supabase.from("services").select("id", { count: "exact", head: true }),
           supabase.from("documents").select("id", { count: "exact", head: true }),
           (supabase as any).from("media").select("id", { count: "exact", head: true }),
           (supabase as any).from("engagements").select("id", { count: "exact", head: true }),
           (supabase as any).from("faqs").select("id", { count: "exact", head: true }),
+          (supabase as any).from("innovation_projects").select("id", { count: "exact", head: true }),
+          (supabase as any).from("maintenance_requests").select("id", { count: "exact", head: true }),
         ]);
 
         setStats({
@@ -37,6 +41,8 @@ export default function Dashboard() {
           media: mediaRes.count || 0,
           engagements: engagementsRes.count || 0,
           faqs: faqsRes.count || 0,
+          innovation: (innovationRes as any).count || 0,
+          maintenance: (maintenanceRes as any).count || 0,
         });
       } catch (error) {
         console.error("Error fetching stats:", error);
@@ -54,6 +60,8 @@ export default function Dashboard() {
     { title: "Documents", value: stats.documents, icon: FileText, href: "/admin/documents", color: "text-purple-600 bg-purple-100" },
     { title: "Media Items", value: stats.media, icon: Newspaper, href: "/admin/media", color: "text-orange-600 bg-orange-100" },
     { title: "Citizen Engagement", value: stats.engagements, icon: Users, href: "/admin/engagements", color: "text-rose-600 bg-rose-100" },
+    { title: "SIT Innovation", value: stats.innovation, icon: Lightbulb, href: "/admin/innovation", color: "text-cyan-600 bg-cyan-100" },
+    { title: "Maintenance", value: stats.maintenance, icon: Wrench, href: "/admin/maintenance", color: "text-indigo-600 bg-indigo-100" },
     { title: "Help Topics", value: stats.faqs, icon: HelpCircle, href: "/admin/faqs", color: "text-amber-600 bg-amber-100" },
   ];
 

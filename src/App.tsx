@@ -15,6 +15,7 @@ import ServiceDetail from "./pages/ServiceDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Documents from "./pages/Documents";
+import InnovationHub from "./pages/InnovationHub";
 import Auth from "./pages/Auth";
 import Tenders from "./pages/Tenders";
 import TenderDetail from "./pages/TenderDetail";
@@ -50,6 +51,8 @@ import MediaForm from "./pages/admin/MediaForm";
 import EngagementList from "./pages/admin/EngagementList";
 import FAQList from "./pages/admin/FAQList";
 import FAQForm from "./pages/admin/FAQForm";
+import MaintenanceList from "./pages/admin/MaintenanceList";
+import InnovationList from "./pages/admin/InnovationList";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -60,7 +63,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_relativeSplatPath: true }}>
           <Routes>
             {/* Public Routes */}
             <Route element={<PublicLayout />}>
@@ -70,6 +73,7 @@ const App = () => (
               <Route path="/services" element={<Services />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/documents" element={<Documents />} />
+              <Route path="/innovation-hub" element={<InnovationHub />} />
               <Route path="/tenders" element={<Tenders />} />
               <Route path="/tenders/:slug" element={<TenderDetail />} />
               <Route path="/reports" element={<Reports />} />
@@ -122,6 +126,8 @@ const App = () => (
               <Route path="faqs" element={<FAQList />} />
               <Route path="faqs/new" element={<FAQForm />} />
               <Route path="faqs/:id" element={<FAQForm />} />
+              <Route path="maintenance" element={<MaintenanceList />} />
+              <Route path="innovation" element={<InnovationList />} />
               <Route path="settings" element={<Settings />} />
             </Route>
 

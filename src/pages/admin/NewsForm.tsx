@@ -16,9 +16,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
-import { Database } from "@/integrations/supabase/types";
+import { ImageUpload } from "@/components/admin/ImageUpload";
 
-type ContentStatus = Database["public"]["Enums"]["content_status"];
+type ContentStatus = "draft" | "published" | "archived";
 
 function generateSlug(title: string) {
   return title
@@ -41,6 +41,7 @@ export default function NewsForm() {
     excerpt: "",
     content: "",
     image_url: "",
+    category: "general",
     status: "draft" as ContentStatus,
   });
 
@@ -66,6 +67,7 @@ export default function NewsForm() {
           excerpt: data.excerpt || "",
           content: data.content,
           image_url: data.image_url || "",
+          category: (data as any).category || "general",
           status: data.status,
         });
       }
@@ -96,6 +98,7 @@ export default function NewsForm() {
         excerpt: form.excerpt || null,
         content: form.content,
         image_url: form.image_url || null,
+        category: form.category,
         status: form.status,
         published_at: form.status === "published" ? new Date().toISOString() : null,
       };
@@ -221,13 +224,29 @@ export default function NewsForm() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="image_url">Featured Image URL</Label>
-                  <Input
-                    id="image_url"
+                  <ImageUpload
+                    label="Featured Interface Image"
                     value={form.image_url}
-                    onChange={(e) => setForm({ ...form, image_url: e.target.value })}
-                    placeholder="https://..."
+                    onChange={(url) => setForm({ ...form, image_url: url })}
                   />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="category">Category</Label>
+                  <Select
+                    value={form.category}
+                    onValueChange={(value: string) => setForm({ ...form, category: value })}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="general">General</SelectItem>
+                      <SelectItem value="training">Training</SelectItem>
+                      <SelectItem value="innovation">Innovation</SelectItem>
+                      <SelectItem value="services">Services</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </CardContent>
             </Card>

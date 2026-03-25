@@ -22,7 +22,8 @@
         "mediaGallery": "Gaaleerii Miidiyaa",
         "contactUs": "Nu Quunnamaa",
         "staffPortal": "Miseensota Waajjiraa",
-        "officialGateway": "Karra Dijitaalaa Ofishaalaa"
+        "officialGateway": "Karra Dijitaalaa SIT Ofishaalaa",
+        "ePortalNowLive": "Poortaaliin lammii dijitaalaa haaraa ammas hojii irra ooleera. Maaloo e-tajaajilaaf galmaa'aa."
     },
     "common": {
         "home": "Mana",
@@ -52,11 +53,17 @@
         "next": "Itti Aanuu",
         "previous": "Dura",
         "close": "Cufi",
-        "language": "Afaan"
+        "language": "Afaan",
+        "notice": "Beeksisa"
     },
     "home": {
-        "welcome": "Baga Nagaan Dhuftan",
-        "subtitle": "Hawaasa keenyaaf gahumsa fi iftoomina waliin tajaajila kennina",
+        "welcome": "Kutaa Saayinsii, Odeeffannoo fi Teknoolojii Zoonii Guraagee",
+        "subtitle": "Dhaloota haaraa dandeessisuu, kalaqa jajjabeessuu fi teknoolojii ammayyaatiin tajaajila uummataa fooyyessuu.",
+        "innovationHub": "Giddugala Kalaqa SIT",
+        "innovationCenter": "Giddugala Kalaqa",
+        "trainingPrograms": "Sagantaalee Leenjii",
+        "maintenanceServices": "Tajaajila Suphaa",
+        "innovationHubDesc": "Meeshaalee fi leenjiilee dhaloota haaraa kalaqtoota Zoonii Guraageedhaaf dandeettii kennan dhiyeessuu.",
         "latestNews": "Oduu Haaraa",
         "ourServices": "Tajaajila Keenya",
         "quickLinks": "Geessituu Saffisaa",

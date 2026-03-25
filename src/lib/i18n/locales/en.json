@@ -5,6 +5,7 @@
         "aboutUs": "About Us",
         "departments": "Departments",
         "leadership": "Leadership",
+        "innovationHub": "Innovation Accelerator",
         "projects": "Projects & Programs",
         "services": "Services",
         "citizenServices": "Citizen Services",
@@ -22,7 +23,8 @@
         "mediaGallery": "Media Gallery",
         "contactUs": "Contact Us",
         "staffPortal": "Staff Portal",
-        "officialGateway": "Official Digital Gateway"
+        "officialGateway": "Official SIT Digital Gateway",
+        "ePortalNowLive": "The new digital citizen portal is now live. Please register for e-services."
     },
     "common": {
         "home": "Home",
@@ -52,16 +54,28 @@
         "next": "Next",
         "previous": "Previous",
         "close": "Close",
-        "language": "Language"
+        "language": "Language",
+        "notice": "Notice"
     },
     "home": {
-        "welcome": "Welcome to",
-        "subtitle": "Serving our community with excellence and transparency",
+        "welcome": "Gurage Zone Science, Information, and Technology Department",
+        "subtitle": "Empowering youth, fostering innovation, and enhancing public service through modern technology.",
+        "innovationHub": "SIT Innovation Hub",
+        "innovationCenter": "Innovation Center",
+        "trainingPrograms": "Training Programs",
+        "maintenanceServices": "Maintenance Services",
+        "innovationHubDesc": "Providing tools and training to empower the next generation of innovators in Gurage Zone.",
         "latestNews": "Latest News",
         "ourServices": "Our Services",
         "quickLinks": "Quick Links",
         "statistics": "Statistics",
-        "featuredProjects": "Featured Projects"
+        "featuredProjects": "Featured Projects",
+        "impactTitle": "Digital Blueprint 2026",
+        "impactSubtitle": "Measuring regional technological adoption and strategic innovation growth.",
+        "adoptionRate": "Regional Adoption Rate",
+        "innovationHubMembers": "Innovation Hub Members",
+        "activeSolutions": "Active Digital Solutions",
+        "impactProjects": "Mission Impact Projects"
     },
     "about": {
         "title": "About Us",

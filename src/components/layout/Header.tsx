@@ -27,6 +27,7 @@ export function Header() {
         { label: t('nav.aboutUs'), href: "/about", description: t('about.subtitle') }, // Using about.subtitle as fallback/similar
         { label: t('nav.departments'), href: "/departments", description: t('departments.subtitle') },
         { label: t('nav.leadership'), href: "/leadership", description: t('leadership.subtitle') },
+        { label: t('nav.innovationHub'), href: "/innovation-hub", description: t('home.innovationHubDesc') },
         { label: t('nav.projects'), href: "/page/projects", description: t('home.featuredProjects') },
       ]
     },
@@ -60,17 +61,17 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+    <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-background/50 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/30">
       <div className="gov-container">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary shadow-lg shadow-primary/20 transition-transform group-hover:scale-110">
-              <Building2 className="h-6 w-6 text-primary-foreground" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary shadow-[0_0_30px_rgba(var(--primary),0.3)] transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+              <Building2 className="h-6 w-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <p className="text-xl font-black text-foreground tracking-tighter leading-none">GOVERNMENT PORTAL</p>
-              <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">{t('nav.officialGateway')}</p>
+              <p className="text-2xl font-black text-white tracking-tighter leading-none group-hover:text-glow transition-all">SIT <span className="text-secondary">PORTAL</span></p>
+              <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] mt-1">{t('nav.officialGateway')}</p>
             </div>
           </Link>
 

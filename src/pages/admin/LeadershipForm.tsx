@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { ImageUpload } from "@/components/admin/ImageUpload";
 
 type ContentStatus = "draft" | "published" | "archived";
 
@@ -192,16 +193,11 @@ export default function LeadershipForm() {
                     </div>
 
                     <div className="space-y-4">
-                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Photo URL</label>
-                        <div className="relative">
-                            <Upload className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
-                            <Input
-                                placeholder="https://example.com/photo.jpg"
-                                value={form.image_url}
-                                onChange={(e) => setForm({ ...form, image_url: e.target.value })}
-                                className="h-14 border-2 rounded-2xl pl-12 pr-6 font-medium"
-                            />
-                        </div>
+                        <ImageUpload
+                            label="Official Portrait"
+                            value={form.image_url}
+                            onChange={(url) => setForm({ ...form, image_url: url })}
+                        />
                     </div>
 
                     <div className="space-y-4">

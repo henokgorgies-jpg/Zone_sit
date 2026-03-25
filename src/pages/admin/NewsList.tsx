@@ -24,9 +24,15 @@ import {
 } from "@/components/ui/alert-dialog";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { Database } from "@/integrations/supabase/types";
 
-type News = Database["public"]["Tables"]["news"]["Row"];
+type News = {
+  id: string;
+  title: string;
+  excerpt: string | null;
+  category?: string;
+  status: string;
+  created_at: string;
+};
 
 export default function NewsList() {
   const [news, setNews] = useState<News[]>([]);
@@ -113,6 +119,7 @@ export default function NewsList() {
             <TableHeader>
               <TableRow>
                 <TableHead>Title</TableHead>
+                <TableHead>Category</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Date</TableHead>
                 <TableHead className="text-right">Actions</TableHead>
@@ -126,6 +133,11 @@ export default function NewsList() {
                       <p className="font-medium">{item.title}</p>
                       <p className="text-sm text-muted-foreground line-clamp-1">{item.excerpt}</p>
                     </div>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant="outline" className="capitalize">
+                      {item.category || "general"}
+                    </Badge>
                   </TableCell>
                   <TableCell>{getStatusBadge(item.status)}</TableCell>
                   <TableCell>

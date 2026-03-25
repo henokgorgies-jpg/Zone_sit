@@ -5,6 +5,7 @@
         "aboutUs": "ስለ እኛ",
         "departments": "ክፍሎች",
         "leadership": "አመራር",
+        "innovationHub": "የፈጠራ ማፋጠኛ",
         "projects": "ፕሮጀክቶች እና ፕሮግራሞች",
         "services": "አገልግሎቶች",
         "citizenServices": "የዜጎች አገልግሎቶች",
@@ -22,7 +23,8 @@
         "mediaGallery": "የሚዲያ ማዕከል",
         "contactUs": "አግኙን",
         "staffPortal": "የሰራተኞች ፖርታል",
-        "officialGateway": "ኦፊሴላዊ ዲጂታል መግቢያ"
+        "officialGateway": "ኦፊሴላዊ የSIT ዲጂታል መግቢያ",
+        "ePortalNowLive": "አዲሱ የዲጂታል ዜጋ ፖርታል አሁን ስራ ጀምሯል። እባክዎን ለኢ-አገልግሎቶች ይመዝገቡ።"
     },
     "common": {
         "home": "መነሻ",
@@ -52,16 +54,28 @@
         "next": "ቀጣይ",
         "previous": "ቀዳሚ",
         "close": "ዝጋ",
-        "language": "ቋንቋ"
+        "language": "ቋንቋ",
+        "notice": "ማስታወቂያ"
     },
     "home": {
-        "welcome": "እንኳን ደህና መጡ",
-        "subtitle": "ለማህበረሰባችን በልቀት እና በግልጽነት እናገለግላለን",
+        "welcome": "የጉራጌ ዞን ሳይንስ፣ መረጃ እና ቴክኖሎጂ መምሪያ",
+        "subtitle": "ወጣቶችን ማብቃት፣ ፈጠራን ማበረታታት እና በዘመናዊ ቴክኖሎጂ የህዝብ አገልግሎትን ማሻሻል።",
+        "innovationHub": "የSIT ፈጠራ ማዕከል",
+        "innovationCenter": "የፈጠራ ማዕከል",
+        "trainingPrograms": "የስልጠና ፕሮግራሞች",
+        "maintenanceServices": "የጥገና አገልግሎቶች",
+        "innovationHubDesc": "በጉራጌ ዞን የሚገኙ ቀጣይ ትውልድ ወጣት ፈጣሪዎችን ለማብቃት የሚያስችሉ መሳሪያዎችንና ስልጠናዎችን መስጠት።",
         "latestNews": "የቅርብ ጊዜ ዜናዎች",
         "ourServices": "አገልግሎቶቻችን",
         "quickLinks": "ፈጣን አገናኞች",
         "statistics": "ስታትስቲክስ",
-        "featuredProjects": "ዋና ፕሮጀክቶች"
+        "featuredProjects": "ዋና ፕሮጀክቶች",
+        "impactTitle": "ዲጂታል ብሉፕሪንት 2026",
+        "impactSubtitle": "የክልላዊ የቴክኖሎጂ አጠቃቀም እና ስትራቴጂካዊ የፈጠራ እድገት መለኪያ።",
+        "adoptionRate": "የቴክኖሎጂ አጠቃቀም መጠን",
+        "innovationHubMembers": "የኢኖቬሽን ማዕከል አባላት",
+        "activeSolutions": "ንቁ የዲጂታል መፍትሄዎች",
+        "impactProjects": "ተልዕኮ ተኮር ፕሮጀክቶች"
     },
     "about": {
         "title": "ስለ እኛ",
